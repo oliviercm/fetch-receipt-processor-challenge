@@ -106,11 +106,26 @@ describe("receipt schema", function () {
             })).to.have.ownProperty("error");
         });
 
-        it("must have a valid purchase time", function () {
+        it("must have a valid purchase time #1", function () {
             expect(Receipt.validate({
                 "retailer": "M&M Corner Market",
                 "purchaseDate": "2022-01-01",
                 "purchaseTime": "25:01",
+                "items": [
+                    {
+                        "shortDescription": "Mountain Dew 12PK",
+                        "price": "6.49"
+                    }
+                ],
+                "total": "6.49"
+            })).to.have.ownProperty("error");
+        });
+
+        it("must have a valid purchase time #2", function () {
+            expect(Receipt.validate({
+                "retailer": "M&M Corner Market",
+                "purchaseDate": "2022-01-01",
+                "purchaseTime": "13:61",
                 "items": [
                     {
                         "shortDescription": "Mountain Dew 12PK",
@@ -158,6 +173,36 @@ describe("receipt schema", function () {
                     }
                 ],
                 "total": "6.492"
+            })).to.have.ownProperty("error");
+        });
+
+        it("must have a string purchase date", function () {
+            expect(Receipt.validate({
+                "retailer": "M&M Corner Market",
+                "purchaseDate": 10,
+                "purchaseTime": "13:01",
+                "items": [
+                    {
+                        "shortDescription": "Mountain Dew 12PK",
+                        "price": "6.49"
+                    }
+                ],
+                "total": "6.49"
+            })).to.have.ownProperty("error");
+        });
+
+        it("must have a string purchase time", function () {
+            expect(Receipt.validate({
+                "retailer": "M&M Corner Market",
+                "purchaseDate": "2022-01-01",
+                "purchaseTime": 13,
+                "items": [
+                    {
+                        "shortDescription": "Mountain Dew 12PK",
+                        "price": "6.49"
+                    }
+                ],
+                "total": "6.49"
             })).to.have.ownProperty("error");
         });
     });

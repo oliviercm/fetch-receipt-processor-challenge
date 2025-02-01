@@ -8,17 +8,25 @@ const schema = Joi.object({
         .required()
         .raw(),
     
-    // FIXME: Doesn't catch cases where the purchase date is a number (not a string) which apparently still passes this validation?
     purchaseDate: Joi
         .date()
         .format("YYYY-MM-DD")
+        .custom((value, { original }) => {
+            if (typeof (original) !== "string") {
+                throw new Error("purchase date must be a string");
+            }
+        })
         .required()
         .raw(),
     
-    // FIXME: Doesn't catch cases where the purchase time is a number (not a string) which apparently still passes this validation?
     purchaseTime: Joi
         .date()
         .format("HH:mm")
+        .custom((value, { original }) => {
+            if (typeof (original) !== "string") {
+                throw new Error("purchase time must be a string");
+            }
+        })
         .required()
         .raw(),
     
