@@ -1,0 +1,14 @@
+{
+  "name": "fetch-receipt-processor-challenge",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Olivier Chan Sion Moy",
+  "license": "MIT",
+  "description": "",
+  "devDependencies": {
+    "mocha": "^11.1.0"
+  }
+}
