@@ -10,6 +10,7 @@ const schema = Joi.object({
     
     purchaseDate: Joi
         .date()
+        .format("YYYY-MM-DD")
         .required()
         .raw(),
     
