@@ -16,7 +16,7 @@ describe("receipt schema", function () {
                     }
                 ],
                 "total": "6.49"
-            })).to.have.ownProperty("value");
+            })).to.not.have.ownProperty("error");
         });
 
         it("validates receipt #2", function () {
@@ -29,7 +29,7 @@ describe("receipt schema", function () {
                     {"shortDescription": "Pepsi - 12-oz", "price": "1.25"},
                     {"shortDescription": "Dasani", "price": "1.40"}
                 ]
-            })).to.have.ownProperty("value");
+            })).to.not.have.ownProperty("error");
         });
 
         it("validates receipt #3", function () {
@@ -41,7 +41,7 @@ describe("receipt schema", function () {
                 "items": [
                     {"shortDescription": "Pepsi - 12-oz", "price": "1.25"}
                 ]
-            })).to.have.ownProperty("value");
+            })).to.not.have.ownProperty("error");
         });
     });
 

@@ -8,21 +8,21 @@ describe("item schema", function () {
             expect(Item.validate({
                 "shortDescription": "Mountain Dew 12PK",
                 "price": "6.49"
-            })).to.have.ownProperty("value");
+            })).to.not.have.ownProperty("error");
         });
 
         it("validates item #2", function () {
             expect(Item.validate({
                 "shortDescription": "Pepsi - 12-oz",
                 "price": "1.25"
-            })).to.have.ownProperty("value");
+            })).to.not.have.ownProperty("error");
         });
 
         it("validates item #3", function () {
             expect(Item.validate({
                 "shortDescription": "Dasani",
                 "price": "1.40"
-            })).to.have.ownProperty("value");
+            })).to.not.have.ownProperty("error");
         });
     });
 
