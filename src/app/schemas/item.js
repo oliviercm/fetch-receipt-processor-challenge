@@ -4,12 +4,14 @@ const schema = Joi.object({
     shortDescription: Joi
         .string()
         .pattern(new RegExp("^[\\w\\s\\-]+$"))
-        .required(),
+        .required()
+        .raw(),
     
     price: Joi
         .string()
         .pattern(new RegExp("^\\d+\\.\\d{2}$"))
-        .required(),
+        .required()
+        .raw(),
 });
 
 module.exports = schema;

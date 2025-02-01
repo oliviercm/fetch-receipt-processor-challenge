@@ -5,8 +5,7 @@ const router = express.Router({ mergeParams: true });
  * Submits a receipt for processing.
  */
 router.post("/process", async (req, res, next) => {
-    const receipt = req.body;
-    const { error: validationError } = req.app.get("receiptSchema").validate(receipt);
+    const { error: validationError, value: receipt } = req.app.get("receiptSchema").validate(req.body);
 
     if (validationError) {
         return res.status(400).send("The receipt is invalid.");

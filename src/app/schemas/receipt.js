@@ -5,27 +5,32 @@ const schema = Joi.object({
     retailer: Joi
         .string()
         .pattern(new RegExp("^[\\w\\s\\-&]+$"))
-        .required(),
+        .required()
+        .raw(),
     
     purchaseDate: Joi
         .date()
-        .required(),
+        .required()
+        .raw(),
     
     purchaseTime: Joi
         .date()
         .format("HH:mm")
-        .required(),
+        .required()
+        .raw(),
     
     items: Joi
         .array()
         .min(1)
         .items(Item)
-        .required(),
+        .required()
+        .raw(),
     
     total: Joi
         .string()
         .pattern(new RegExp("^\\d+\\.\\d{2}$"))
-        .required(),
+        .required()
+        .raw(),
 });
 
 module.exports = schema;
