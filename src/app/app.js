@@ -7,6 +7,7 @@ app.set("receiptSchema", require("./schemas/receipt"));
 app.set("receiptStorage", require("./storage/receipt"));
 app.set("receiptIdGenerator", require("uuid").v4);
 app.set("receiptPointCalculator", require("../../src/app/points/receipt"));
+app.set("logger", console);
 
 // Accept JSON requests
 app.use(express.json());
